@@ -8,8 +8,9 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Project root se HTML/CSS aur public folder se assets serve karne ke liye
+// Serve public assets from the same root URLs used by Vercel.
 const projectRoot = path.join(__dirname, '..');
+app.use(express.static(__dirname));
 app.use(express.static(projectRoot));
 
 // 1. Home page route
