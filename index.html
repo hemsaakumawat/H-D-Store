@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&D Gift Shop — Handcrafted Luxury & Personalized Gifts</title>
+    <meta name="description" content="Discover handcrafted luxury gift boxes, scented candles, personalized keepsakes, and celebration hampers at H&D Gift Shop.">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="logo-box">
+                <a href="index.html"><img src="images/logo.png" alt="H&D Gift Shop Logo" class="logo-img"></a>
+                <a href="index.html"><span class="logo-text">H&D Gift Shop</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button class="nav-cart-btn" onclick="toggleCartDrawer()" aria-label="View Shopping Cart">
+                        <span>🛒 Cart</span>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </button>
+                </li>
+                <li class="nav-auth-wrap">
+                    <button class="btn-nav-login" onclick="openAuthModal('login')">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Log In
+                    </button>
+                    <button class="btn-nav-signup" onclick="openAuthModal('signup')">Sign Up</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="hero-badge">✨ Handcrafted & Curated Gifts</span>
+                <h1>Welcome to <span class="highlight">H&D Gift Shop</span></h1>
+                <p>Find the perfect gifts for your loved ones! We offer handmade luxury hampers, scented candles, artisan chocolates, and personalized keepsakes for every unforgettable moment.</p>
+                <div class="hero-buttons">
+                    <a href="#shop-categories" class="btn btn-primary">Shop by Category</a>
+                    <a href="gallery.html" class="btn btn-secondary">Explore Gallery</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-box">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80" alt="H&D Signature Luxury Gift Box">
+                    <div class="hero-floating-badge">
+                        <span style="font-size: 1.3rem;">🎀</span>
+                        <div>
+                            <div><strong>100% Handcrafted</strong></div>
+                            <small style="color: #cbd5e1;">With Silk Ribbon & Wax Seal</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SHOP BY CATEGORY SECTION (User Core Request) -->
+    <section class="shop-section" id="shop-categories">
+        <div class="section-title">
+            <h2>Shop Gifts by Category</h2>
+            <div class="underline"></div>
+            <p class="section-subtitle">Select a category below to explore our handcrafted collections and add items to your cart</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="category-tabs">
+            <button class="cat-btn active" onclick="filterCategory('all', event)">🌟 All Gifts</button>
+            <button class="cat-btn" onclick="filterCategory('hampers', event)">🎁 Luxury Hampers</button>
+            <button class="cat-btn" onclick="filterCategory('birthday', event)">🎂 Birthday Specials</button>
+            <button class="cat-btn" onclick="filterCategory('anniversary', event)">💍 Anniversary & Romance</button>
+            <button class="cat-btn" onclick="filterCategory('personalized', event)">✍️ Personalized</button>
+            <button class="cat-btn" onclick="filterCategory('candles', event)">🕯️ Candles & Scents</button>
+            <button class="cat-btn" onclick="filterCategory('chocolates', event)">🍫 Chocolates</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product 1: Hampers -->
+            <article class="shop-card" data-category="hampers">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80" alt="Royal Emerald Celebration Hamper" loading="lazy">
+                    <span class="shop-badge">Bestseller</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Luxury Hampers</span>
+                    <h3 class="shop-card-title">Royal Emerald Celebration Hamper</h3>
+                    <p class="shop-card-desc">Velvet-lined gift box with artisan chocolates, honey jar, scented candle & gold ribbon.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$35.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Royal Emerald Celebration Hamper', '$35.00', 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 2: Candles -->
+            <article class="shop-card" data-category="candles">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80" alt="Scented Candle Set" loading="lazy">
+                    <span class="shop-badge">Natural Wax</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Candles & Scents</span>
+                    <h3 class="shop-card-title">Natural Soy Scented Candle Set</h3>
+                    <p class="shop-card-desc">Trio of calming soy wax candles with lavender and vanilla relaxing fragrance.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$18.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Natural Soy Scented Candle Set', '$18.00', 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 3: Personalized -->
+            <article class="shop-card" data-category="personalized">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80" alt="Wooden Keepsake Box" loading="lazy">
+                    <span class="shop-badge">Custom Name</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Personalized Keepsakes</span>
+                    <h3 class="shop-card-title">Engraved Wooden Keepsake Box</h3>
+                    <p class="shop-card-desc">Solid handcrafted wood box with custom laser engraved name and velvet interior.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$25.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Engraved Wooden Keepsake Box', '$25.00', 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 4: Chocolates -->
+            <article class="shop-card" data-category="chocolates">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1548741487-18d363dc4469?auto=format&fit=crop&w=700&q=80" alt="Gourmet Chocolates Box" loading="lazy">
+                    <span class="shop-badge">Delicious</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Chocolates & Treats</span>
+                    <h3 class="shop-card-title">Gourmet Swiss Chocolates Box</h3>
+                    <p class="shop-card-desc">Assorted premium dark and milk chocolate pralines wrapped with gold bow.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$20.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Gourmet Swiss Chocolates Box', '$20.00', 'https://images.unsplash.com/photo-1548741487-18d363dc4469?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 5: Personalized -->
+            <article class="shop-card" data-category="personalized">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=700&q=80" alt="Leather Diary and Golden Pen" loading="lazy">
+                    <span class="shop-badge">Executive</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Personalized Keepsakes</span>
+                    <h3 class="shop-card-title">Vintage Leather Journal & Pen</h3>
+                    <p class="shop-card-desc">Full-grain leather bound diary with handmade paper and heavy brass writing pen.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$22.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Vintage Leather Journal & Pen', '$22.00', 'https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 6: Anniversary -->
+            <article class="shop-card" data-category="anniversary">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=80" alt="Celebration Romance Hamper" loading="lazy">
+                    <span class="shop-badge">Romance</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Anniversary & Romance</span>
+                    <h3 class="shop-card-title">Celebration Romance & Toast Hamper</h3>
+                    <p class="shop-card-desc">Crystal champagne flutes pair, mulberry silk sleep mask & celebration treats.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$40.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Celebration Romance & Toast Hamper', '$40.00', 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 7: Birthday -->
+            <article class="shop-card" data-category="birthday">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=700&q=80" alt="Birthday Special Surprise Box" loading="lazy">
+                    <span class="shop-badge">Celebration</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Birthday Specials</span>
+                    <h3 class="shop-card-title">Birthday Surprise Mystery Box</h3>
+                    <p class="shop-card-desc">A festive curation of treats, celebration accessories, and custom greeting card.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$28.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Birthday Surprise Mystery Box', '$28.00', 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 8: Personalized -->
+            <article class="shop-card" data-category="personalized">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Ceramic Mug Gift Combo" loading="lazy">
+                    <span class="shop-badge">Couple Set</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Personalized Keepsakes</span>
+                    <h3 class="shop-card-title">Gold-Rim Ceramic Mug Set</h3>
+                    <p class="shop-card-desc">Pair of ceramic coffee mugs with gold rim and customized monogram initials.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$15.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Gold-Rim Ceramic Mug Set', '$15.00', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 9: Hampers -->
+            <article class="shop-card" data-category="hampers">
+                <div class="shop-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80" alt="Festive Delights Hamper" loading="lazy">
+                    <span class="shop-badge">Festive Special</span>
+                </div>
+                <div class="shop-card-body">
+                    <span class="shop-card-cat">Luxury Hampers</span>
+                    <h3 class="shop-card-title">Festive Delights Gourmet Hamper</h3>
+                    <p class="shop-card-desc">Roasted dry fruits, gourmet cookies, scented aroma jar and festive decoration.</p>
+                    <div class="shop-card-footer">
+                        <span class="shop-card-price">$32.00</span>
+                        <button class="btn-add-cart" onclick="addToCart('Festive Delights Gourmet Hamper', '$32.00', 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80')">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="shop.html" class="btn btn-primary" style="font-size: 1rem; padding: 13px 32px;">View All Products in Shop &rarr;</a>
+        </div>
+    </section>
+
+    <!-- 3. WHY CHOOSE US (TRUST STRIP) -->
+    <section class="trust-strip">
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-icon">🎀</div>
+                <h3>Artisan Packaging</h3>
+                <p>Every box is hand-tied with silk ribbons and stamped with golden wax seal.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">✍️</div>
+                <h3>Personalization</h3>
+                <p>Custom names, laser engravings, and handwritten message cards.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">🚚</div>
+                <h3>Safe Express Delivery</h3>
+                <p>Doorstep hand-delivery on your requested celebration date.</p>
+            </div>
+            <div class="trust-card">
+                <div class="trust-icon">❤️</div>
+                <h3>100% Handcrafted</h3>
+                <p>Curated with love and premium materials for unforgettable emotions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CUSTOMER TESTIMONIALS -->
+    <section class="reviews-section">
+        <div class="section-title">
+            <h2>What Our Customers Say</h2>
+            <div class="underline"></div>
+            <p class="section-subtitle">Real moments and genuine happiness from our cherished clients</p>
+        </div>
+        <div class="reviews-grid">
+            <article class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <blockquote>“The Royal Emerald Hamper was packed so beautifully with silk ribbon and wax seal! My sister was overjoyed on her birthday.”</blockquote>
+                <div class="review-author">
+                    Priya Sharma
+                    <span>Verified Buyer · Birthday Gift</span>
+                </div>
+            </article>
+            <article class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <blockquote>“Ordered the engraved wooden keepsake box for our 5th anniversary. Top-notch wooden finish and on-time delivery!”</blockquote>
+                <div class="review-author">
+                    Rahul Mehta
+                    <span>Verified Buyer · Anniversary Gift</span>
+                </div>
+            </article>
+            <article class="review-card">
+                <div class="review-stars">★ ★ ★ ★ ★</div>
+                <blockquote>“The scented candles smell heavenly and the presentation is pure luxury. H&D Gift Shop is now my go-to gifting destination.”</blockquote>
+                <div class="review-author">
+                    Ananya Kapoor
+                    <span>Verified Buyer · Housewarming Gift</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 5. SLIDE-OUT CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+        <div class="cart-drawer-header">
+            <h3>🛍️ Your Gift Bag</h3>
+            <button class="cart-drawer-close" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated via script.js -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-subtotal-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary cart-checkout-btn" onclick="proceedToCheckout()">
+                <span>Confirm Order via WhatsApp</span> &rarr;
+            </button>
+            <button class="btn-outline-gold" style="width: 100%; margin-top: 10px; padding: 8px; border-radius: 999px; font-size: 0.85rem;" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </aside>
+
+    <!-- 5b. DEMO AUTH MODAL (LOGIN & SIGN UP) -->
+    <div class="auth-overlay" id="authOverlay" onclick="closeAuthModal()"></div>
+    <div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <div class="auth-modal-header">
+            <button class="auth-modal-close" onclick="closeAuthModal()" aria-label="Close dialog">&times;</button>
+            <span class="auth-badge">✨ Preview Mode (Demo)</span>
+            <h3 id="authTitle">Welcome to H&D Gifts</h3>
+            <p id="authSubtitle">Log in to manage orders, wishlist, and gift deliveries.</p>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">Log In</button>
+            <button class="auth-tab-btn" id="tabBtnSignup" onclick="switchAuthTab('signup')">Create Account</button>
+        </div>
+
+        <div class="auth-modal-body">
+            <!-- 1. LOGIN FORM -->
+            <form class="auth-form active" id="authLoginForm" onsubmit="handleAuthSubmit(event, 'login')">
+                <div class="auth-field">
+                    <label for="loginEmail">Email or Mobile Number</label>
+                    <input type="text" id="loginEmail" placeholder="example@email.com / 9876543210" required>
+                </div>
+                <div class="auth-field">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <div class="auth-options">
+                    <label>
+                        <input type="checkbox" id="rememberMe" checked> Remember me
+                    </label>
+                    <a href="javascript:void(0)" onclick="demoForgotPassword()" class="auth-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-auth-submit">Log In to Account</button>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <button type="button" class="btn-google-demo" onclick="demoGoogleAuth()">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+                    Continue with Google
+                </button>
+
+                <div class="auth-footer-switch">
+                    Don't have an account? <button type="button" onclick="switchAuthTab('signup')">Sign Up here</button>
+                </div>
+
+                <div class="auth-demo-notice">
+                    🔒 <strong>Non-working Demo:</strong> Tested in preview condition without backend database.
+                </div>
+            </form>
+
+            <!-- 2. SIGN UP FORM -->
+            <form class="auth-form" id="authSignupForm" onsubmit="handleAuthSubmit(event, 'signup')">
+                <div class="auth-field">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="e.g. Rahul Sharma" required>
+                </div>
+                <div class="auth-field">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="rahul@example.com" required>
+                </div>
+                <div class="auth-field">
+                    <label for="signupPhone">Phone / WhatsApp Number</label>
+                    <input type="tel" id="signupPhone" placeholder="+91 98765 43210" required>
+                </div>
+                <div class="auth-field">
+                    <label for="signupPassword">Create Password</label>
+                    <input type="password" id="signupPassword" placeholder="Minimum 6 characters" required>
+                </div>
+                <div class="auth-options">
+                    <label>
+                        <input type="checkbox" id="termsCheck" checked required> I agree to H&D Terms & Privacy Policy
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-auth-submit">Create Free Account</button>
+
+                <div class="auth-divider">
+                    <span>or sign up with</span>
+                </div>
+
+                <button type="button" class="btn-google-demo" onclick="demoGoogleAuth()">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+                    Sign up with Google
+                </button>
+
+                <div class="auth-footer-switch">
+                    Already have an account? <button type="button" onclick="switchAuthTab('login')">Log In here</button>
+                </div>
+
+                <div class="auth-demo-notice">
+                    🔒 <strong>Non-working Demo:</strong> Tested in preview condition without backend database.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-box">
+                    <a href="index.html"><img src="images/logo.png" alt="H&D Gift Shop Logo" class="logo-img"></a>
+                    <a href="index.html"><span class="logo-text">H&D Gift Shop</span></a>
+                </div>
+                <p>Bringing joy to every celebration with handcrafted gifts, curated hampers, and memorable keepsakes.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Collections</a></li>
+                    <li><a href="gallery.html">Gift Photo Gallery</a></li>
+                    <li><a href="about.html">Our Story & About</a></li>
+                    <li><a href="services.html">Bespoke Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Gift Categories</h3>
+                <ul>
+                    <li><a href="#shop-categories">Luxury Hampers</a></li>
+                    <li><a href="#shop-categories">Birthday Specials</a></li>
+                    <li><a href="#shop-categories">Anniversary Keepsakes</a></li>
+                    <li><a href="#shop-categories">Scented Candles</a></li>
+                    <li><a href="#shop-categories">Artisan Chocolates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact & Store</h3>
+                <p>📍 Main Market Road, Near City Mall, Jaipur</p>
+                <p>📞 +91 9999999999</p>
+                <p>✉️ hemsaajpr@gmail.com</p>
+                <p style="margin-top: 15px;"><a href="privacy.html" style="color: var(--gold); text-decoration: underline;">Privacy Policy</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 <strong>H&D Gift Shop</strong>. All Rights Reserved.</p>
+            <p>Made with love for happy moments.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="shop-cart.js"></script>
+</body>
+</html>
