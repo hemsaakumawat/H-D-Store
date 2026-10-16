@@ -50,3 +50,30 @@ function handleFormSubmit(event) {
     })
     .catch(() => alert('Network error! try again.'));
 }
+
+document.querySelectorAll('.navbar').forEach(navbar => {
+    const toggle = navbar.querySelector('.nav-menu-toggle');
+    const links = navbar.querySelector('.nav-links');
+
+    if (!toggle || !links) return;
+
+    const closeMenu = () => {
+        navbar.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = navbar.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    links.addEventListener('click', event => {
+        if (event.target.closest('a')) closeMenu();
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
+});

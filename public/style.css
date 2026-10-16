@@ -95,6 +95,29 @@ header {
     letter-spacing: 0.5px;
 }
 
+.nav-menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 8px;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gold-light);
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -1536,6 +1559,64 @@ header {
 
 /* 13. RESPONSIVE DESIGN (Mobile & Tablet) */
 @media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0;
+        padding: 10px 16px;
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .nav-menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex: 0 0 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        padding-top: 8px;
+    }
+
+    .navbar.menu-open .nav-links {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a:not(.nav-cart-btn) {
+        display: block;
+        padding: 10px 8px;
+    }
+
+    .nav-links a.active {
+        border-bottom: 0;
+        color: var(--gold);
+    }
+
+    .nav-auth-wrap {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 8px;
+    }
+
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -1577,24 +1658,6 @@ header {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-    }
-
-    .nav-auth-wrap {
-        margin-left: 0;
-        margin-top: 4px;
-        width: 100%;
-        justify-content: center;
-    }
-
     .auth-modal {
         width: 95%;
         max-height: 94vh;
