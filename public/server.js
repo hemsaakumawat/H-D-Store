@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve public assets from the same root URLs used by Vercel.
-const projectRoot = path.join(__dirname);
+const projectRoot = path.join(__dirname, '..');
 app.use(express.static(__dirname));
 app.use(express.static(projectRoot));
 
